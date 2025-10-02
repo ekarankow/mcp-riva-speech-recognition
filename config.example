@@ -1,0 +1,28 @@
+# Example environment configuration for Riva Speech Recognition MCP Server
+
+# Server configuration
+RIVA_HOST=localhost
+RIVA_PORT=8080
+RIVA_LOG_LEVEL=INFO
+
+# NVIDIA Riva server configuration
+RIVA_URI=localhost:50051
+RIVA_LANGUAGE_CODE=en-US
+RIVA_ASR_MODE=offline
+RIVA_MAX_ALTERNATIVES=3
+RIVA_ENABLE_PUNCTUATION=true
+RIVA_VERBATIM_TRANSCRIPTS=false
+
+# Supported language codes:
+# en-US (English - United States)
+# es-US (Spanish - United States) 
+# de-DE (German - Germany)
+# fr-FR (French - France)
+# pt-BR (Portuguese - Brazil)
+# zh-CN (Chinese - China)
+# ja-JP (Japanese - Japan)
+# ko-KR (Korean - South Korea)
+
+# ASR modes:
+# offline - Process entire audio at once (better for batch processing)
+# streaming - Process audio in chunks with real-time results

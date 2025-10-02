@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "riva-speech-recognition-mcp"
+version = "0.1.0"
+description = "A Model Context Protocol server for NVIDIA Riva speech recognition"
+requires-python = ">=3.10"
+authors = [
+    { name = "Riva Speech Recognition Team" }
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "nvidia-riva-client>=2.14.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+]
+
+[project.scripts]
+riva-speech-recognition-mcp = "riva_speech_recognition_mcp.server:main"
+
+[tool.uv]
+dev-dependencies = []
