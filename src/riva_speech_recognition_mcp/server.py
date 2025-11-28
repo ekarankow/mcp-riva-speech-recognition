@@ -43,10 +43,10 @@ class RivaConfig(BaseSettings):
     log_level: str = "INFO"
     
     # NVIDIA Riva server configuration
-    riva_uri: str = "localhost:50051"
+    riva_uri: str = os.getenv('RIVA_URI', 'localhost:50051')
     riva_language_code: str = "en-US"
-    riva_asr_mode: str = "offline"  # offline or streaming
-    riva_max_alternatives: int = 3
+    riva_asr_mode: str = os.getenv('RIVA_ASR_MODE', 'offline').lower()  # offline or streaming
+    riva_max_alternatives: int = int(os.getenv('RIVA_MAX_ALTERNATIVES', '3'))
     riva_enable_punctuation: bool = True
     riva_verbatim_transcripts: bool = False
     
