@@ -424,14 +424,14 @@ def recognize_speech(audio_data_base64: str, language_code: Optional[str] = None
     #         # Clean up temporary file
     #         os.unlink(temp_path)
     #
-    # except Exception as e:
-    #     error_msg = f"Unexpected error during speech recognition: {e}"
-    #     logger.error(error_msg)
-    #     logger.error(f"Full traceback: {traceback.format_exc()}")
-    #     return TranscriptionResponse(
-    #         success=False,
-    #         error_message=error_msg
-    #     ).dict()
+    except Exception as e:
+        error_msg = f"Unexpected error during speech recognition: {e}"
+        logger.error(error_msg)
+        logger.error(f"Full traceback: {traceback.format_exc()}")
+        return TranscriptionResponse(
+            success=False,
+            error_message=error_msg
+        ).dict()
     return TranscriptionResponse(
         success=True,
         transcript="this is a test transcript",
