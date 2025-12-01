@@ -323,29 +323,29 @@ def recognize_speech(audio_data_base64: str, language_code: Optional[str] = None
     Returns:
         Dict[str, Any]: Recognition results with transcript, confidence, and metadata
     """
-    # try:
-    #     logger.info("Starting speech recognition")
-    #
-    #     # Decode base64 audio data
-    #     try:
-    #         audio_data = base64.b64decode(audio_data_base64)
-    #         logger.info(f"Successfully decoded {len(audio_data)} bytes from base64")
-    #     except Exception as e:
-    #         error_msg = f"Failed to decode base64 audio data: {e}"
-    #         logger.error(error_msg)
-    #         return TranscriptionResponse(
-    #             success=False,
-    #             error_message=error_msg
-    #         ).dict()
-    #
-    #     if len(audio_data) == 0:
-    #         error_msg = "Decoded audio data is empty"
-    #         logger.error(error_msg)
-    #         return TranscriptionResponse(
-    #             success=False,
-    #             error_message=error_msg
-    #         ).dict()
-    #
+    try:
+        logger.info("Starting speech recognition")
+
+        # Decode base64 audio data
+        try:
+            audio_data = base64.b64decode(audio_data_base64)
+            logger.info(f"Successfully decoded {len(audio_data)} bytes from base64")
+        except Exception as e:
+            error_msg = f"Failed to decode base64 audio data: {e}"
+            logger.error(error_msg)
+            return TranscriptionResponse(
+                success=False,
+                error_message=error_msg
+            ).dict()
+
+        if len(audio_data) == 0:
+            error_msg = "Decoded audio data is empty"
+            logger.error(error_msg)
+            return TranscriptionResponse(
+                success=False,
+                error_message=error_msg
+            ).dict()
+
     #     # Use provided parameters or fall back to config
     #     lang_code = language_code or config.riva_language_code
     #     asr_mode = (mode or config.riva_asr_mode).lower()
